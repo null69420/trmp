@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf8">
+        <title>Donald J. Trump (@realDonaldTrump) | Truth Social</title>
+        <link rel="icon" href="icon.png">
+        <meta name="apple-mobile-web-app-status-bar-style" content="white">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover minimal-ui standalone">
+        <style>
+            * {
+                font-family:inter;
+                text-decoration:none;
+                color:#333;
+            }
+
+            @font-face {
+                font-family: inter;
+                src: url('inter.ttf');
+            }
+
+            @font-face {
+                font-family: poppins;
+                src: url('poppinsreg.ttf');
+            }
+
+            body,html{
+                margin:0px;
+                padding:0px;
+                background-color:#fff;
+            }
+
+            .nav{
+                width:100vw;
+                padding-top:15px;
+                padding-bottom:15px;
+                display:block;
+                position:fixed;
+                top:0px;
+                left:20%;
+                background-color:#fff;
+                z-index:9999;
+            }
+
+            .nav img{
+                width:114px;
+                padding-left:72px;
+                padding-top:15px;
+            }
+
+            .section {
+                clear: both;
+                padding: 0px;
+                margin: 0px;
+            }
+
+            .col {
+                display: block;
+                float:left;
+                margin: 1% 0 1% 0%;
+            }
+            .col:first-child { margin-left: 0; }
+
+            .group:before,
+            .group:after { content:""; display:table; }
+            .group:after { clear:both;}
+            .group {
+                zoom:1;
+            }
+
+            .span_3_of_3 { width: 100%; }
+            .span_2_of_3 { width: 66.66%; }
+            .span_1_of_3 { width: 25.33%; }
+
+            @media only screen and (max-width: 480px) {
+                .col {  margin: 1% 0 1% 0%; }
+                .span_3_of_3, .span_2_of_3, .span_1_of_3 { width: 100%; }
+            }
+
+            .lol{
+                width:45%;
+                height:100%;
+                border-left-style:solid;
+                border-right-style:solid;
+                border-width:2px;
+                border-left-color:#f2f2f2;
+                border-right-color:#f2f2f2;
+                margin-top:0px;
+            }
+
+            .lol1{
+                width:26.5%;
+            }
+
+            .navpro{
+                margin-top:20px;
+                padding-bottom:10px;
+                border-bottom-style:solid;
+                border-bottom-color:#f2f2f2;
+                text-align:justify;
+            }
+
+            .navpro a{
+                padding-left:17px;
+                display:inline-block;
+                margin-right:5px;
+                margin-top:3px;
+            }
+
+            .navpro .bak{
+                width:20px;
+                margin-top:10px;
+            }
+
+            .navpro h2{
+                font-size:20px;
+                display:inline-block;
+                margin-top:0px;
+                margin-bottom:0px;
+                text-align:justify;
+            }
+
+            .navpro .verified1{
+                width:20px;
+                height:20px;
+                display:inline-block;
+            }
+
+            .banner{
+                width:100%;
+                height:200px;
+                overflow-y:hidden;
+            }
+
+            .banner img{
+                width:100%;
+            }
+
+            .pfp{
+                width:90px;
+                border-radius:50%;
+                border-style:solid;
+                border-color:#fff;
+                border-width:4px;
+                margin-left:20px;
+                position:absolute;
+                margin-top:-45px;
+                text-align:justify;
+            }
+
+            .badge{
+                text-align:justify;
+                width:30px;
+                height:30px;
+                border-radius:50%;
+                border-style:solid;
+                background-color:#fff;
+                border-color:#fff;
+                border-width:2px;
+                position:absolute;
+                z-index:1;
+                margin-top:15px;
+                margin-left:90px;
+            }
+
+            .info h2{
+                margin-left:15px;
+                margin-top:60px;
+                margin-bottom:0px;
+                font-size:17px;
+                text-align:justify;
+            }
+
+            .info p{
+                margin-left:15px;
+                margin-top:0px;
+                margin-bottom:0px;
+                opacity:0.7;
+                font-size:14px;
+                text-align:justify;
+            }
+
+            .count{
+                padding-top:15px;
+                font-size:14px !important;
+                color:#000;
+                font-weight:700;
+                text-align:justify;
+            }
+
+            .count span{
+                font-weight:400;
+                opacity:0.7;
+            }
+
+            .tabs{
+                width:100%;
+                padding-top:10px;
+                padding-bottom:10px;
+            }
+
+            .tabs h3{
+                font-size:15px;
+                width: 30%;
+                padding-bottom:15px;
+                display:inline-block;
+                border-bottom-style:solid;
+                border-bottom-width:4px;
+                border-bottom-color:#f2f2f2;
+            }
+
+            .post{
+                
+            }
+
+            .cell{
+                width:100%;
+                display:block;
+            }
+
+            .cell .icon{
+                float:left;
+                width:40px;
+                height:40px;
+                border-radius:50%;
+                margin-left:20px;
+                text-align:justify;
+            }
+
+            .cell h1{
+                margin-top:0px;
+                margin-bottom:0px;
+                margin-left:70px;
+                font-size:15px;
+                text-align:justify;
+                font-family: poppins;
+            }
+
+            .cell p{
+                margin-top:5px;
+                margin-bottom:0px;
+                margin-left:70px;
+                font-size:13px;
+                opacity:0.7;
+                text-align:justify;
+                
+            }
+
+            .cell h1 img{
+                width:15px;
+                height:15px;
+            }
+
+            .meme{
+                width:100%;
+            }
+
+            .memecut{
+                width:90%;
+                height:300px;
+                overflow-y:hidden;
+                border-radius:5px;
+                margin-bottom:10px;
+            }
+
+            .tool{
+                height:40px;
+                width:16%;
+                display:inline-block;
+            }
+
+            .tool img{
+                width:20px;
+                height:20px;
+                display:inline-block;
+            }
+
+            .tool p{
+                font-size:12px;
+                font-weight:600;
+                color:#444;
+                display:inline-block;
+                position:absolute;
+                margin-top:3px;
+            }
+
+            .pfpcont{
+                float:left;
+            }
+
+            button.post1 {
+                background: none;
+                border: none;
+                padding: 0;
+                margin: 0;
+                width: 100%;
+                cursor: pointer;
+                text-align: left;
+                display: block;
+            }
+
+            #cont {
+                display: none;
+            }
+
+            h2 {
+                font-family:poppins;
+            }
+
+            /* Popup styles */
+            .popup-overlay {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(255, 255, 255, 0.7); /* Semi-transparent white */
+                z-index: 10000;
+            }
+
+            .popup {
+                display: none;
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background: #fff;
+                padding: 20px;
+                border-radius: 10px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                z-index: 10001;
+                width: 80%;
+                max-width: 450px;
+                height:300px;
+                text-align: center;
+                font-family: poppins;
+            }
+
+            .popup h3 {
+                margin: 0 0 10px;
+                font-size: 18px;
+            }
+
+            .popup p {
+                margin: 0 0 20px;
+                font-size: 14px;
+                opacity: 0.8;
+            }
+
+            .popup button.cancel-btn {
+                background: #fff;
+                border: none;
+                padding: 10px 20px;
+                border-radius: 5px;
+                cursor: pointer;
+                font-size: 14px;
+                font-family: poppins;
+                color: #333;
+            }
+
+            .popup button.cancel-btn:hover {
+                background: #fff;
+            }
+
+            .popup button.cancel-btn.top-left {
+                position: absolute;
+                top: 10px;
+                left: 10px;
+                padding: 5px 10px;
+                font-size: 12px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="nav">
+            <img src="truth-logo.svg">
+        </div>
+
+        <div style="margin-top:60px;"></div>
+        <center>
+        <div style="width:90%;max-width:600px;">
+        <div class="profile">
+            <div class="navpro">
+                <a href="https://truthsocial.com">
+                    <img class="bak" src="back.png">
+                </a>
+                <h2>Donald J. Trump</h2>
+                <img class="verified1" src="verify.png">
+            </div>
+            <div class="banner">
+                <img src="banner.png">
+            </div>
+            <div class="pfpcont">
+                <img class="pfp" src="profile.png">
+                <img class="badge" src="verify.png">
+            </div>
+            <div class="info">
+                <h2 onclick="location='https:/\/casp.dev/share/test/'">Donald J. Trump</h2>
+                <p>@realDonaldTrump</p>
+                <p class="count">9.6M <span>Followers</span> 72 <span>Following</span></p>
+                <p style="margin-top:5px;font-weight:500;">Joined February 2022 <a style="color:rgb(155, 60, 245);" href="https://donaldtrump.com">donaldtrump.com</a></p>
+                <center>
+                    <div class="tabs">
+                        <h3 style="border-bottom-color:rgb(155,60,245);">Truths</h3>
+                        <button style="width:30%;background-color:#fff;padding:0px;border-style:none;" class="reply">
+                        <h3 style="width:100%;" class="reply">Replies</h3>
+                    </button>
+                    <button style="width:30%;background-color:#fff;padding:0px;border-style:none;" class="reply">
+                        <h3 style="width:100%;" >Media</h3>
+                    </button>
+                    </div>
+                </center>
+            </div>
+            
+                <div onclick="location=''" class="cell">
+                    <img class="icon" src="profile.png">
+                    <h1>Donald J. Trump <img class="verified1" src="verify.png"></h1>
+                    <p>@realDonaldTrump · 30s</p>
+                </div>
+                <center>
+                    <p style="width:89%;padding:1%;text-align:justify;font-size:17px;background-color:#fff;border-radius:5px;">China will get 1000% tariffs</p>
+                    <div class="memecut">
+                        <img class="meme" src="trump.jpg">
+                    </div>
+                    <div class="tool">
+                        <img src="chat.png">
+                        <p>907</p>
+                    </div>
+                    <div class="tool">
+                        <img src="repost.png">
+                        <p>3.4k</p>
+                    </div>
+                    <div class="tool">
+                        <img src="like.png">
+                        <p>12.5k</p>
+                    </div>
+                    <div class="tool">
+                        <img src="mark.png">
+                    </div>
+                    <div class="tool">
+                        <img src="share.png">
+                    </div>
+                    <div class="tool">
+                        <img src="dots.png">
+                    </div>
+                </center>
+            
+            <div class="post">
+                <div onclick="location=''" class="cell">
+                    <img class="icon" src="profile.png">
+                    <h1>Donald J. Trump <img class="verified1" src="verify.png"></h1>
+                    <p>@realDonaldTrump · 1hr</p>
+                </div>
+                <center>
+                    <p style="width:89%;padding:1%;text-align:justify;background-color:#fff;border-radius:5px;">Prime Minister Georgia Meloni of Italy was great yesterday in her visit to the White House. She loves her country, and the impression she left on everyone was FANTASTIC!!!  DJT</p>
+                    <div class="tool">
+                        <img src="chat.png">
+                        <p>907</p>
+                    </div>
+                    <div class="tool">
+                        <img src="repost.png">
+                        <p>3.4k</p>
+                    </div>
+                    <div class="tool">
+                        <img src="like.png">
+                        <p>12.5k</p>
+                    </div>
+                    <div class="tool">
+                        <img src="mark.png">
+                    </div>
+                    <div class="tool">
+                        <img src="share.png">
+                    </div>
+                    <div class="tool">
+                        <img src="dots.png">
+                    </div>
+                </center>
+            </div>
+            <div class="post">
+                <div onclick="location='https://casp.dev/share/test/'" class="cell">
+                    <img class="icon" src="profile.png">
+                    <h1>Donald J. Trump <img class="verified1" src="verify.png"></h1>
+                    <p>@realDonaldTrump · 1hr</p>
+                </div>
+                <center>
+                    <p style="width:89%;padding:1%;text-align:justify;background-color:#fff;border-radius:5px;">Senator Chris Van Hollen of Maryland looked like a fool yesterday standing in El Salvador begging for attention from the Fake News Media, or anyone. GRANDSTANDER!!!</p>
+                    <div class="tool">
+                        <img src="chat.png">
+                        <p>907</p>
+                    </div>
+                    <div class="tool">
+                        <img src="repost.png">
+                        <p>3.4k</p>
+                    </div>
+                    <div class="tool">
+                        <img src="like.png">
+                        <p>12.5k</p>
+                    </div>
+                    <div class="tool">
+                        <img src="mark.png">
+                    </div>
+                    <div class="tool">
+                        <img src="share.png">
+                    </div>
+                    <div class="tool">
+                        <img src="dots.png">
+                    </div>
+                </center>
+            </div>
+            <div class="post">
+                <div onclick="location='https://casp.dev/share/test/'" class="cell">
+                    <img class="icon" src="profile.png">
+                    <h1>Donald J. Trump <img class="verified1" src="verify.png"></h1>
+                    <p>@realDonaldTrump · 1hr</p>
+                </div><br>
+                <center>
+                    <div class="memecut">
+                        <iframe width="100%" height="300px" src="https://1a-1791.com/video/fww1/a6/s8/2/n/6/7/C/n67Cy.caa.mp4?b=1&u=ummtf"></iframe>
+                    </div>
+                    <div class="tool">
+                        <img src="chat.png">
+                        <p>907</p>
+                    </div>
+                    <div class="tool">
+                        <img src="repost.png">
+                        <p>3.4k</p>
+                    </div>
+                    <div class="tool">
+                        <img src="like.png">
+                        <p>12.5k</p>
+                    </div>
+                    <div class="tool">
+                        <img src="mark.png">
+                    </div>
+                    <div class="tool">
+                        <img src="share.png">
+                    </div>
+                    <div class="tool">
+                        <img src="dots.png">
+                    </div>
+                </center>
+            </div>
+        </div>
+        </div>
+        </center>
+
+        <div class="popup-overlay"></div>
+        <div class="popup">
+            <button class="cancel-btn top-left">X</button>
+            <br>
+            <br>
+            <img style="width:55px;" src="Unknown.png">
+            <h3 style="font-size:30px;">Continue the conversation.</h3>
+            <p style="font-size:17px;">Sign up now to create your personalized experience.</p>
+            <button style="width:90%;background-color:#fff;border-style:solid;padding:8px;border-width:1px;border-color:#f2f2f2;border-radius:30px;font-size:15px;margin:5px;">Create Account</button>
+            <button style="width:90%;background-color:#fff;border-style:solid;padding:8px;border-width:1px;border-color:#f2f2f2;border-radius:30px;font-size:15px;margin:5px;">Sign In</button>
+            
+        </div>
+
+        <script>
+            $(document).ready(function() {
+                
+                $('button.reply').click(function(e) {
+                    e.stopPropagation();
+                    $('.popup-overlay, .popup').fadeIn();
+                });
+
+                $('.cancel-btn').click(function() {
+                    $('.popup-overlay, .popup').fadeOut();
+                });
+            });
+        </script>
+    </body>
+</html>
