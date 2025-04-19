@@ -37,7 +37,7 @@
                 display:block;
                 position:fixed;
                 top:0px;
-                left:20%;
+                padding-left:17%;
                 background-color:#fff;
                 z-index:9999;
             }
@@ -257,16 +257,65 @@
 
             .memecut{
                 width:90%;
-                height:300px;
+                max-height:300px;
                 overflow-y:hidden;
                 border-radius:5px;
                 margin-bottom:10px;
             }
+                            
+            .iframe-wrapper {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 90%;
+                min-height: 300px;
+                flex-direction: column;
+                gap: 10px;
+                margin: 5px;
+            }
+
+            .frame {
+                position: relative;
+                width: 100%;
+                max-width: 600px;
+                aspect-ratio: 1 / 1;
+                background-color: #000;
+            }
+
+            @supports not (aspect-ratio: 1 / 1) {
+                .frame {
+                    padding-bottom: 100%;
+                }
+            }
+
+            .frame video {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+                border: none;
+                padding: 0;
+                margin: 0;
+            }
+
+            @media only screen and (max-width: 480px) {
+                .iframe-wrapper {
+                    width: 95%;
+                    min-height: 250px;
+                }
+                .frame {
+                    max-width: 100%;
+                }
+            }
 
             .tool{
                 height:40px;
-                width:16%;
+                width:15%;
                 display:inline-block;
+                text-align:center;
             }
 
             .tool img{
@@ -307,7 +356,6 @@
                 font-family:poppins;
             }
 
-            /* Popup styles */
             .popup-overlay {
                 display: none;
                 position: fixed;
@@ -315,7 +363,7 @@
                 left: 0;
                 width: 100%;
                 height: 100%;
-                background: rgba(255, 255, 255, 0.7); /* Semi-transparent white */
+                background: rgba(255, 255, 255, 0.7);
                 z-index: 10000;
             }
 
@@ -374,7 +422,7 @@
     </head>
     <body>
         <div class="nav">
-            <img src="truth-logo.svg">
+            <img onclick="location='https:/\/truthsocial.com'" src="truth-logo.svg">
         </div>
 
         <div style="margin-top:60px;"></div>
@@ -398,11 +446,11 @@
             <div class="info">
                 <h2 onclick="location='https:/\/casp.dev/share/test/'">Donald J. Trump</h2>
                 <p>@realDonaldTrump</p>
-                <p class="count">9.6M <span>Followers</span> 72 <span>Following</span></p>
-                <p style="margin-top:5px;font-weight:500;">Joined February 2022 <a style="color:rgb(155, 60, 245);" href="https://donaldtrump.com">donaldtrump.com</a></p>
+                <p class="count">9.63M <span>Followers</span> 72 <span>Following</span></p>
+                <p style="margin-top:5px;font-weight:500;">Joined February 2022 <a style="color:rgb(75, 60, 245);" href="https://donaldtrump.com">donaldtrump.com</a></p>
                 <center>
                     <div class="tabs">
-                        <h3 style="border-bottom-color:rgb(155,60,245);">Truths</h3>
+                        <h3 style="border-bottom-color:rgb(75,60,245);">Truths</h3>
                         <button style="width:30%;background-color:#fff;padding:0px;border-style:none;" class="reply">
                         <h3 style="width:100%;" class="reply">Replies</h3>
                     </button>
@@ -425,46 +473,199 @@
                     </div>
                     <div class="tool">
                         <img src="chat.png">
-                        <p>907</p>
+                        <p>35</p>
                     </div>
                     <div class="tool">
                         <img src="repost.png">
-                        <p>3.4k</p>
+                        <p>138</p>
                     </div>
                     <div class="tool">
                         <img src="like.png">
-                        <p>12.5k</p>
+                        <p>540</p>
                     </div>
-                    <div class="tool">
+                    <div class="tool one">
                         <img src="mark.png">
                     </div>
-                    <div class="tool">
+                    <div class="tool one">
                         <img src="share.png">
                     </div>
-                    <div class="tool">
+                    <div class="tool one">
                         <img src="dots.png">
                     </div>
                 </center>
+
+                <div class="post">
+                    <div onclick="location=''" class="cell">
+                        <img class="icon" src="profile.png">
+                        <h1>Donald J. Trump <img class="verified1" src="verify.png"></h1>
+                        <p>@realDonaldTrump · 18hr</p>
+                    </div>
+                    <center>
+                        <div class="iframe-wrapper">
+                            <div class="frame">
+                                <video controls>
+                                    <source src="https://1a-1791.com/video/fww1/45/s8/2/L/H/j/D/LHjDy.caa.mp4?b=1&u=ummtf" type="video/mp4">
+                                </video>
+                            </div>
+                        </div>
+                        
+                        <div class="tool">
+                            <img src="chat.png">
+                            <p>1.77k</p>
+                        </div>
+                        <div class="tool">
+                            <img src="repost.png">
+                            <p>3.98k</p>
+                        </div>
+                        <div class="tool">
+                            <img src="like.png">
+                            <p>16.3k</p>
+                        </div>
+                        <div class="tool">
+                            <img src="mark.png">
+                        </div>
+                        <div class="tool">
+                            <img src="share.png">
+                        </div>
+                        <div class="tool">
+                            <img src="dots.png">
+                        </div>
+                    </center>
+                </div>
+
+                <div class="post">
+                    <div onclick="location=''" class="cell">
+                        <img class="icon" src="profile.png">
+                        <h1>Donald J. Trump <img class="verified1" src="verify.png"></h1>
+                        <p>@realDonaldTrump · 18hr</p>
+                    </div>
+                    <center>
+                        <div class="iframe-wrapper">
+                            <div class="frame">
+                                <video controls>
+                                    <source src="https://1a-1791.com/video/fww1/b7/s8/2/r/G/j/D/rGjDy.caa.mp4?b=1&u=ummtf" type="video/mp4">
+                                </video>
+                            </div>
+                        </div>
+                        <div class="tool">
+                            <img src="chat.png">
+                            <p>749</p>
+                        </div>
+                        <div class="tool">
+                            <img src="repost.png">
+                            <p>3.56k</p>
+                        </div>
+                        <div class="tool">
+                            <img src="like.png">
+                            <p>16k</p>
+                        </div>
+                        <div class="tool">
+                            <img src="mark.png">
+                        </div>
+                        <div class="tool">
+                            <img src="share.png">
+                        </div>
+                        <div class="tool">
+                            <img src="dots.png">
+                        </div>
+                    </center>
+                </div>
+
+                <div class="post">
+                    <div onclick="location=''" class="cell">
+                        <img class="icon" src="profile.png">
+                        <h1>Donald J. Trump <img class="verified1" src="verify.png"></h1>
+                        <p>@realDonaldTrump · 18hr</p>
+                    </div>
+                    <center>
+                        <div class="iframe-wrapper">
+                            <div class="frame">
+                                <video controls>
+                                    <source src="https://1a-1791.com/video/fww1/c1/s8/2/N/z/j/D/NzjDy.caa.mp4?b=1&u=ummtf" type="video/mp4">
+                                </video>
+                            </div>
+                        </div>
+                        <div class="tool">
+                            <img src="chat.png">
+                            <p>1.3k</p>
+                        </div>
+                        <div class="tool">
+                            <img src="repost.png">
+                            <p>4.45k</p>
+                        </div>
+                        <div class="tool">
+                            <img src="like.png">
+                            <p>17.4k</p>
+                        </div>
+                        <div class="tool">
+                            <img src="mark.png">
+                        </div>
+                        <div class="tool">
+                            <img src="share.png">
+                        </div>
+                        <div class="tool">
+                            <img src="dots.png">
+                        </div>
+                    </center>
+                </div>
+
+                <div class="post">
+                    <div onclick="location=''" class="cell">
+                        <img class="icon" src="profile.png">
+                        <h1>Donald J. Trump <img class="verified1" src="verify.png"></h1>
+                        <p>@realDonaldTrump · 18hr</p>
+                    </div>
+                    <center>
+                        <div class="iframe-wrapper">
+                            <div class="frame">
+                                <video controls>
+                                    <source src="https://1a-1791.com/video/fww1/bd/s8/2/j/z/j/D/jzjDy.caa.mp4?b=1&u=ummtf" type="video/mp4">
+                                </video>
+                            </div>
+                        </div>
+                       <div class="tool">
+                            <img src="chat.png">
+                            <p>558</p>
+                        </div>
+                        <div class="tool">
+                            <img src="repost.png">
+                            <p>3.38k</p>
+                        </div>
+                        <div class="tool">
+                            <img src="like.png">
+                            <p>14k</p>
+                        </div>
+                        <div class="tool">
+                            <img src="mark.png">
+                        </div>
+                        <div class="tool">
+                            <img src="share.png">
+                        </div>
+                        <div class="tool">
+                            <img src="dots.png">
+                        </div>
+                    </center>
+                </div>
             
             <div class="post">
                 <div onclick="location=''" class="cell">
                     <img class="icon" src="profile.png">
                     <h1>Donald J. Trump <img class="verified1" src="verify.png"></h1>
-                    <p>@realDonaldTrump · 1hr</p>
+                    <p>@realDonaldTrump · 18hr</p>
                 </div>
                 <center>
                     <p style="width:89%;padding:1%;text-align:justify;background-color:#fff;border-radius:5px;">Prime Minister Georgia Meloni of Italy was great yesterday in her visit to the White House. She loves her country, and the impression she left on everyone was FANTASTIC!!!  DJT</p>
                     <div class="tool">
                         <img src="chat.png">
-                        <p>907</p>
+                        <p>320</p>
                     </div>
                     <div class="tool">
                         <img src="repost.png">
-                        <p>3.4k</p>
+                        <p>1.1k</p>
                     </div>
                     <div class="tool">
                         <img src="like.png">
-                        <p>12.5k</p>
+                        <p>3.5k</p>
                     </div>
                     <div class="tool">
                         <img src="mark.png">
@@ -478,24 +679,24 @@
                 </center>
             </div>
             <div class="post">
-                <div onclick="location='https://casp.dev/share/test/'" class="cell">
+                <div onclick="location=''" class="cell">
                     <img class="icon" src="profile.png">
                     <h1>Donald J. Trump <img class="verified1" src="verify.png"></h1>
-                    <p>@realDonaldTrump · 1hr</p>
+                    <p>@realDonaldTrump · 18hr</p>
                 </div>
                 <center>
                     <p style="width:89%;padding:1%;text-align:justify;background-color:#fff;border-radius:5px;">Senator Chris Van Hollen of Maryland looked like a fool yesterday standing in El Salvador begging for attention from the Fake News Media, or anyone. GRANDSTANDER!!!</p>
                     <div class="tool">
                         <img src="chat.png">
-                        <p>907</p>
+                        <p>320</p>
                     </div>
                     <div class="tool">
                         <img src="repost.png">
-                        <p>3.4k</p>
+                        <p>1.4k</p>
                     </div>
                     <div class="tool">
                         <img src="like.png">
-                        <p>12.5k</p>
+                        <p>6.2k</p>
                     </div>
                     <div class="tool">
                         <img src="mark.png">
@@ -509,26 +710,30 @@
                 </center>
             </div>
             <div class="post">
-                <div onclick="location='https://casp.dev/share/test/'" class="cell">
+                <div onclick="location=''" class="cell">
                     <img class="icon" src="profile.png">
                     <h1>Donald J. Trump <img class="verified1" src="verify.png"></h1>
-                    <p>@realDonaldTrump · 1hr</p>
+                    <p>@realDonaldTrump · 19hr</p>
                 </div><br>
                 <center>
-                    <div class="memecut">
-                        <iframe width="100%" height="300px" src="https://1a-1791.com/video/fww1/a6/s8/2/n/6/7/C/n67Cy.caa.mp4?b=1&u=ummtf"></iframe>
+                    <div class="iframe-wrapper">
+                        <div class="frame">
+                            <video controls>
+                                <source src="https://1a-1791.com/video/fww1/0f/s8/2/l/s/j/D/lsjDy.caa.mp4?b=1&u=ummtf" type="video/mp4">
+                            </video>
+                        </div>
                     </div>
                     <div class="tool">
                         <img src="chat.png">
-                        <p>907</p>
+                        <p>745</p>
                     </div>
                     <div class="tool">
                         <img src="repost.png">
-                        <p>3.4k</p>
+                        <p>3.49k</p>
                     </div>
                     <div class="tool">
                         <img src="like.png">
-                        <p>12.5k</p>
+                        <p>14.2k</p>
                     </div>
                     <div class="tool">
                         <img src="mark.png">
@@ -541,7 +746,6 @@
                     </div>
                 </center>
             </div>
-        </div>
         </div>
         </center>
 
@@ -553,7 +757,7 @@
             <img style="width:55px;" src="Unknown.png">
             <h3 style="font-size:30px;">Continue the conversation.</h3>
             <p style="font-size:17px;">Sign up now to create your personalized experience.</p>
-            <button style="width:90%;background-color:#fff;border-style:solid;padding:8px;border-width:1px;border-color:#f2f2f2;border-radius:30px;font-size:15px;margin:5px;">Create Account</button>
+            <button style="width:90%;background-color:#fff;border-style:solid;padding/or:1px;border-color:#f2f2f2;border-radius:30px;font-size:15px;margin:5px;">Create Account</button>
             <button style="width:90%;background-color:#fff;border-style:solid;padding:8px;border-width:1px;border-color:#f2f2f2;border-radius:30px;font-size:15px;margin:5px;">Sign In</button>
             
         </div>
@@ -571,5 +775,6 @@
                 });
             });
         </script>
+        
     </body>
 </html>
